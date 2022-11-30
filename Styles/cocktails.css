@@ -71,6 +71,8 @@ width: 100vw;
 {
    border: solid 2px transparent;
    margin-top: 3vh;
+   border-radius: 25%;
+   overflow: hidden;
    
 }
 .cocktail-image
@@ -78,7 +80,7 @@ width: 100vw;
     display: block;
     height: 30vw;
     width: 25vw;
-    border-radius: 100px;
+ 
 }
 .Name-of-cocktail
 {
@@ -86,5 +88,5 @@ width: 100vw;
     text-align: center;
     background-color: black;
     color: white;
-    border-radius: 100px;
+   
 }

@@ -1,0 +1,90 @@
+html
+{
+    height: 100%;
+}
+body
+{
+    height: 100%;
+    background: url(/img/Коктели/fon.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; 
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+
+}
+.style-text
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: red;
+}
+.name-project
+{
+    display: block;
+    text-align: center;
+    background-color: antiquewhite;
+    font-size: 1.2em;
+    text-transform:uppercase;
+}
+.main
+{
+    display: flex;
+    flex-direction: column;
+}
+.container-details
+{
+ 
+    display: flex;
+    flex-direction: column;
+}
+.general-picture
+{
+display: block;
+margin-left: auto;
+margin-right: auto;
+height: 60vw;
+width: 100vw;
+
+}
+.description
+{
+    display: block;
+    text-align: center;
+    background-color: aliceblue;
+}
+.cocktail-list
+{
+    display: flex; 
+    flex-wrap: wrap;
+    max-height: 45vh;
+    overflow-y: scroll;
+    list-style: none;
+    justify-content: space-evenly;
+    padding-left: 0;
+}
+.coctail-ankor
+{
+
+}
+.cocktail
+{
+   border: solid 2px transparent;
+   margin-top: 3vh;
+   
+}
+.cocktail-image
+{
+    display: block;
+    height: 30vw;
+    width: 25vw;
+    border-radius: 100px;
+}
+.Name-of-cocktail
+{
+    display: block;
+    text-align: center;
+    background-color: black;
+    color: white;
+    border-radius: 100px;
+}

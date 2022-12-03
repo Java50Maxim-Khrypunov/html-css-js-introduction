@@ -1,3 +1,13 @@
+@font-face {
+    font-family: airstream;
+    src: url(../styles/fonts/Airstream-webfont.svg);
+    src: url(../styles/fonts/Airstream-webfont.woff);
+}
+@font-face {
+    font-family: lakeshor;
+    src: url(../styles/fonts/LAKESHOR-webfont.svg);
+    src: url(../styles/fonts/LAKESHOR-webfont.woff);
+}
 html
 {
     height: 100%;
@@ -18,25 +28,29 @@ body
     margin-top: 10px;
     margin-bottom: 10px;
     color: red;
+    font-family: lakeshor;
 }
 .name-project
 {
     display: block;
     text-align: center;
-    background-color: antiquewhite;
+    background: url(../img/Коктели/фон\ 2.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover; 
     font-size: 1.2em;
     text-transform:uppercase;
 }
-.main
+.main-class
 {
     display: flex;
     flex-direction: column;
+
 }
 .container-details
 {
- 
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 .general-picture
 {
@@ -52,6 +66,7 @@ width: 100vw;
     display: block;
     text-align: center;
     background-color: aliceblue;
+    font-family: airstream;
 }
 .cocktail-list
 {
@@ -65,7 +80,7 @@ width: 100vw;
 }
 .coctail-ankor
 {
-
+text-decoration: none;
 }
 .cocktail
 {
@@ -80,13 +95,93 @@ width: 100vw;
     display: block;
     height: 30vw;
     width: 25vw;
- 
 }
+
 .Name-of-cocktail
 {
     display: block;
     text-align: center;
     background-color: black;
-    color: white;
-   
+    color: white;  
+}
+@media (min-width: 560px)
+{
+    .main-class
+    {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .general-picture
+    {
+    border-radius: 25%;
+    height: 45vw;
+    width: 69vw;
+    }
+.cocktail-list
+{
+    order: -1;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    max-height: 82vh;
+    justify-content: flex-start;
+    padding-right: 30px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+.cocktail
+{
+margin-top: 5px;
+min-height: 18vw;   
+}
+.cocktail-image
+{
+    height: 15vw;
+    width: 15vw;
+}
+.Name-of-cocktail
+{
+    height: 3vw;
+}
+.description
+{
+    padding-bottom: 6px;
+    background-color: orange;
+    font-family: airstream;
+    text-align: center;
+    display: block
+}
+.container-details
+{
+    margin-bottom: 0;
+    display: block; 
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+    
+}
+}
+@media (min-width: 1000px)
+{
+    .general-picture
+    {
+        border-radius: 25%;
+        width: 73vw;
+        height: 40vw;
+    }
+    .cocktail-list
+{
+    max-height: 85vh;
+}
+.cocktail-list
+{
+    max-height: 85vh;
+}
+.name-project
+{
+    font-size: 1.6em;
+}
+.container-details
+{
+    display:flex;
+}
 }

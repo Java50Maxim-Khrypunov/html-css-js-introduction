@@ -63,6 +63,7 @@ width: 100vw;
 }
 .description
 {
+    font-size: 140%;
     display: block;
     text-align: center;
     background-color: aliceblue;
@@ -144,6 +145,7 @@ min-height: 18vw;
 }
 .description
 {
+    font-size: 120%;
     padding-bottom: 6px;
     background-color: orange;
     font-family: airstream;
@@ -181,6 +183,10 @@ min-height: 18vw;
 margin-top: 5px;
 min-height: 16.5vw;   
 }
-
+.description
+{
+    font-size: 1.2em; 
+    font-size: 170%; 
+}
 
 }

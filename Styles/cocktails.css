@@ -168,10 +168,6 @@ min-height: 18vw;
         width: 73vw;
         height: 40vw;
     }
-    .cocktail-list
-{
-    max-height: 85vh;
-}
 .cocktail-list
 {
     max-height: 85vh;
@@ -180,8 +176,11 @@ min-height: 18vw;
 {
     font-size: 1.6em;
 }
-.container-details
+.cocktail
 {
-    display:flex;
+margin-top: 5px;
+min-height: 16.5vw;   
 }
+
+
 }

@@ -63,6 +63,7 @@ body
 .details-frame
 {
     position: relative;
+    color: blue;
 }
 .general-picture
 {
@@ -81,10 +82,15 @@ width: var(--general-picture-width);
     background-color: transparent;
     font-family: airstream;
     position: absolute; 
-    color: whitesmoke;
+    color: orange;
     left: 5vw;
     bottom: 2vh;
 }
+.description:hover
+{
+    color: black;
+}
+
 .cocktail-list
 {
     display: flex; 
@@ -104,8 +110,8 @@ text-decoration: none;
 .cocktail
 {
    border: solid 2px transparent;
-   margin-top: 10px;
-   margin-bottom: 5px;
+   margin-top: 15px;
+   margin-bottom: 10px;
    border-radius: 25%;
    overflow: hidden;
    min-height: calc(var(--cocktail-image-heigh) + var(--name-of-cocktail-text-heigh));
@@ -144,6 +150,7 @@ text-decoration: none;
     .general-picture
     {
     border-radius: 25%;
+
     }
 .cocktail-list
 {
@@ -163,17 +170,16 @@ margin-top: 5px;
 
 .description
 {
-    font-size: 120%;
+    font-size: 123%;
     padding-bottom: 2px;
     font-family: airstream;
     background: transparent;
     text-align: center;
     display: block;
-    color: antiquewhite;
-    left: 20%;
-
-
+    left: 2%;
+    bottom: 8vh;
 }
+
 .container-details
 {
     margin-bottom: 0;
@@ -181,8 +187,8 @@ margin-top: 5px;
     flex-direction: column;
     justify-content: center;
     padding-left: 20px;
-    
 }
+
 }
 @media (min-width: 1000px)
 
@@ -202,20 +208,23 @@ margin-top: 5px;
 }
 .cocktail
 {
-margin-top: 5px;
+margin-top: 7px;
 min-height: 16.5vw;   
 margin-left: 15px;
 }
 
 .cocktail:hover
 {
-transform: scale(1.15);
+transform: scale(1.1);
+margin-bottom: 10px;
+margin-top: 10px;
 }
 .description
-{
-    font-size: 1.2em; 
+{ 
     font-size: 170%; 
-    left: 30%;
+    left: 14%;
+    
 }
+
 
 }

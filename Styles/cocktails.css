@@ -14,8 +14,8 @@ html
 }
 body
 {
-    --cocktail-image-width: 25vw;
-    --cocktail-image-heigh: 30vw;
+    --cocktail-image-width: 27vw;
+    --cocktail-image-heigh: 16vh;
     --name-of-cocktail-text-heigh:calc(var(--cocktail-image-heigh)*0.2);
     --general-picture-width: 100vw;
     --general-picture-heigh: 60vw;
@@ -23,7 +23,7 @@ body
 body
 {
     height: 100%;
-    background: url(../img/Коктели/fon.jpg);
+    background: url(../img/Коктели/фон\ 5555.jpg);
     background-repeat: no-repeat;
     background-size: cover; 
     display: flex;
@@ -42,7 +42,7 @@ body
 {
     display: block;
     text-align: center;
-    background: url(../img/Коктели/фон\ 2.jpeg);
+    background: url(../img/Коктели/Bar\ fon.jpg);
     background-repeat: no-repeat;
     background-size: cover; 
     font-size: 1.2em;
@@ -52,18 +52,21 @@ body
 {
     display: flex;
     flex-direction: column;
-
 }
+
 .container-details
 {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+.disappear .container-details
+{
+    display: none;
+}
 .details-frame
 {
     position: relative;
-    color: blue;
 }
 .general-picture
 {
@@ -86,11 +89,18 @@ width: var(--general-picture-width);
     left: 5vw;
     bottom: 2vh;
 }
-.description:hover
+#delete-button 
 {
-    color: black;
+    position: absolute;
+    right: 1vw;
+    top: 0.5vh;
 }
 
+.description:hover
+{
+    font-size: 200%;
+    color: red;
+}
 .cocktail-list
 {
     display: flex; 
@@ -103,6 +113,10 @@ width: var(--general-picture-width);
     margin-top: 0px;
     margin-bottom: 0px;
 }
+.disappear .cocktail-list
+{
+    max-height: 90vh;
+}
 .coctail-ankor
 {
 text-decoration: none;
@@ -110,18 +124,29 @@ text-decoration: none;
 .cocktail
 {
    border: solid 2px transparent;
-   margin-top: 15px;
-   margin-bottom: 10px;
+   margin-top: 7px;
+   margin-bottom: 7px;
    border-radius: 25%;
    overflow: hidden;
    min-height: calc(var(--cocktail-image-heigh) + var(--name-of-cocktail-text-heigh));
    min-width: var(--cocktail-image-width);
 }
+.disappear .cocktail
+{
+    margin-top: 5px; 
+    margin-bottom: 5px;
+}
+
 .cocktail-image
 {
     display: block;
     height: var(--cocktail-image-heigh);
     width: var(--cocktail-image-width);
+}
+.disappear .cocktail-image
+{
+    height: calc(var(--cocktail-image-heigh)*1.15);
+    width: calc(var(--cocktail-image-width)*1.10);
 }
 
 .Name-of-cocktail
@@ -136,11 +161,12 @@ text-decoration: none;
 {
     body
 {
-    --cocktail-image-width: 15vw;
-    --cocktail-image-heigh: 15vw;
-    --name-of-cocktail-text-heigh:calc(var(--cocktail-image-heigh)*0.2);
+    --cocktail-image-width: 18vw;
+    --cocktail-image-heigh: 30vh;
+    --name-of-cocktail-text-heigh:calc(var(--cocktail-image-heigh)*0.16);
     --general-picture-width: 69vw;
-    --general-picture-heigh: 48vw;
+    --general-picture-heigh: 47vw;
+    
 }
     .main-class
     {
@@ -149,8 +175,12 @@ text-decoration: none;
     }
     .general-picture
     {
+    justify-content: space-evenly;
     border-radius: 25%;
-
+    }
+    .details-frame
+    {
+        margin-top: 5px;
     }
 .cocktail-list
 {
@@ -159,9 +189,17 @@ text-decoration: none;
     flex-wrap: nowrap;
     max-height: 82vh;
     justify-content: flex-start;
-    padding-right: 30px;
+    padding-right: 20px;
     margin-top: 5px;
     margin-bottom: 0px;
+}
+.disappear .cocktail-list
+{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-height: 80vh;
+    padding-right: 0px;
 }
 .cocktail
 {
@@ -189,42 +227,60 @@ margin-top: 5px;
     padding-left: 20px;
 }
 
+
 }
 @media (min-width: 1000px)
 
 {
     body
     {
+        --cocktail-image-width: 15vw;
+        --cocktail-image-heigh: 32vh;
         --general-picture-width: 75vw;
-        --general-picture-heigh: 42vw;
+        --general-picture-heigh: 88vh;
+        --name-of-cocktail-text-heigh:calc(var(--cocktail-image-heigh)*0.1);
     }
 .cocktail-list
 {
     max-height: 85vh;
+    padding-right: 30px;
 }
+
 .name-project
 {
     font-size: 1.6em;
 }
 .cocktail
 {
-margin-top: 7px;
+margin-bottom: 10px;   
+margin-top: 10px;
 min-height: 16.5vw;   
-margin-left: 15px;
+margin-left: 20px;
 }
-
+.disappear .cocktail:hover
+{
+transform: scale(1.07);   
+}
 .cocktail:hover
 {
 transform: scale(1.1);
-margin-bottom: 10px;
-margin-top: 10px;
 }
 .description
 { 
     font-size: 170%; 
     left: 14%;
-    
 }
-
+.description:hover
+{
+    font-size: 270%;   
+    left: 10%;
+    bottom: 10%;
+    color: red;
+}
+.disappear .cocktail-image
+{
+    height: calc(var(--cocktail-image-heigh)*1.15);
+    width: calc(var(--cocktail-image-width)*1.2);
+}
 
 }

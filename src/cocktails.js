@@ -21,17 +21,16 @@ function disappearDetails()
 }
 function setDatails(anchor)
 {
-    generalPicture.src = anchor.getAttribute("data-general-picture");
+    generalPicture.src =anchor.getAttribute("data-general-picture");
     description.innerHTML = anchor.getAttribute("data-description");
     music.src=anchor.getAttribute("data-music");
     music.play();
     setTimeout(function (){
         music.pause();
-        music.currentTime = 0;
     }, 7000)
-
     showDetails();
 }
+    
 for (let i = 0; i < allAnchor.length; i++)
 {
     allAnchor[i].addEventListener("click", function ()

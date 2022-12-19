@@ -59,6 +59,7 @@ body
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transition: 5s cubic-bezier(0.08, 0.85, 0.1, 1);
 }
 .disappear .container-details
 {
@@ -117,6 +118,7 @@ width: var(--general-picture-width);
 {
     max-height: 90vh;
 }
+
 .coctail-ankor
 {
 text-decoration: none;
@@ -130,7 +132,9 @@ text-decoration: none;
    overflow: hidden;
    min-height: calc(var(--cocktail-image-heigh) + var(--name-of-cocktail-text-heigh));
    min-width: var(--cocktail-image-width);
+  
 }
+
 .disappear .cocktail
 {
     margin-top: 5px; 
@@ -156,6 +160,11 @@ text-decoration: none;
     background-color: black;
     color: white;  
     height: var(--name-of-cocktail-text-heigh);
+}
+.is-point
+{
+    transform: scale(0.001);
+    transition: 0s;
 }
 @media (min-width: 560px)
 {

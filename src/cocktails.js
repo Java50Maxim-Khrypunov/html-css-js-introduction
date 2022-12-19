@@ -18,19 +18,20 @@ function showDetails()
 function disappearDetails()
 {
     mainDet.classList.add(DISAPPEAR);
+    music.pause()
 }
 function setDatails(anchor)
 {
-    generalPicture.src =anchor.getAttribute("data-general-picture");
+    generalPicture.src = anchor.getAttribute("data-general-picture");
     description.innerHTML = anchor.getAttribute("data-description");
     music.src=anchor.getAttribute("data-music");
     music.play();
     setTimeout(function (){
         music.pause();
-    }, 7000)
+    }, 6000)
+
     showDetails();
 }
-    
 for (let i = 0; i < allAnchor.length; i++)
 {
     allAnchor[i].addEventListener("click", function ()

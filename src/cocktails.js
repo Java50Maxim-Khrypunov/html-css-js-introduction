@@ -29,9 +29,9 @@ function setDatails(anchor)
     setTimeout(function (){
         music.pause();
     }, 6000)
-
     showDetails();
 }
+
 for (let i = 0; i < allAnchor.length; i++)
 {
     allAnchor[i].addEventListener("click", function ()

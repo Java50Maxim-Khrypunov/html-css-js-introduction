@@ -34,6 +34,7 @@ let reverse = PrintReverse (123.45);
 let reverse1 = PrintReverse (-280.123);
 let reverse2 = PrintReverse (123456);
 let reverse3 = PrintReverse (-123);
+
 function PrintReverse (number)
 {
 number =Math.trunc(number);

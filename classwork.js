@@ -7,74 +7,102 @@
 function myParseInt(str, base)
 {
 base = base||10;
-let res = 0;
-for (let i = 0; i < str.length; i++)
+const firstIndex = str[0] === "-" ? 1 : 0;
+let res = NaN;
+let code = 1;
+let index = firstIndex;
+code = getCode(str[index], base);
+if (code > 0) 
+{res = code;
+index++;}
+while (index < str.length && code >= 0)
 {
-res = res * base + getCod(str[i]);
+    code = getCode(str[index], base);
+    if (code >= 0)
+    {
+        res = res * base + code;
+    }
+    index++;
 }
+if (firstIndex === 1)
+{res = -res;}
 return res;
 }
+console.log(myParseInt("-21012", 2));
 
-function getCod(symbol)
+
+function getCode(symbol, base)
 {
+    let res = -1;
     symbol = symbol.toLowerCase();
-    const CodeA = 'a'.charCodeAt();
-    const res = symbol <= '9' ? + symbol : symbol.charCodeAt() - CodeA + 10;
-    return res;
-}
-let str1 = "ff";
-let str2 = "123";
-let str22 = "Java";
-let str3 = "123m";
-let str4 = "123.5";
-let num = parseInt(str1, 16);
-let myNum = myParseInt(str1, 16);
-num = parseInt(str2);
-myNum = myParseInt(str2);
-num = parseInt(str22, 36);
-myNum = myParseInt(str22, 36);
-num = parseInt(str3);
-myNum = myParseInt(str3);
-num = parseInt(str4);
-myNum = myParseInt(str4);
-
-let number = 255;
-let str = "" + number;
-str = number.toString(16);
-
-function MytoString(number, base)
-{
-    let res = " ";
-    base = base || 10;
-    number  = Math.abs(number);
-    do
+    const codeA = "a".charCodeAt();
+    if((symbol <= "9" && symbol >= "0") || (symbol>="a" && symbol <= 'z'))
     {
-    let digit = number % base;   
-    const symbol = getSymbol(digit);
-    res = symbol + res;
-    number = Math.trunc (number / base);
+        res = symbol <= '9' ? + symbol : symbol.charCodeAt() - codeA + 10; 
+        if (res >=base) 
+        {
+            res = -1
+        }
     }
-    while (number!=0);
     return res;
 }
-function getSymbol (digit)
+function myToString(number, base) 
 {
-const codeA = "a".charCodeAt();
-let symbol;
-if (digit < 10 ) { symbol = ""+ digit;}
-else 
+    let res = '';
+    base = base || 10;
+    const sign = number < 0 ? "-" : "";
+    number = Math.abs(number);
+    const integerPart = Math.trunc(Math.abs(number));
+    let fractinPart = number - integerPart;
+    fractinPart = fractinPart ? "." + convertIntegerPart (integerPart, base) : "";
+    res = convertIntegerPart(integerPart, base) + '.' + convertFraictionPart (fractinPart, base);
+    return sign + res;
+}
+
+function convertIntegerPart(number, base) 
 {
-    const codeAscii = digit - 10 + codeA;
-    symbol = String.fromCharCode(codeAscii);
+    let res = '';
+    do 
+    {
+        const digit = number % base;
+        const symbol = getSymbol(digit);
+        res = symbol + res;
+        number = Math.trunc(number / base);
+    } while (number);
+    return res;
 }
-return symbol;
+function convertFraictionPart(number, base, precision) 
+{
+    let res = '';
+    precision = precision || 7
+    let count = 0;
+    let intPart;
+    do {
+        
+        number *= base;
+        intPart = Math.trunc(number);
+        if (intPart != 0) {
+            if (count === precision && intPart >= base / 2) {
+                intPart++;
+            }
+            const symb = getSymbol(intPart);
+            res += symb;
+            number = number - intPart;
+        }
+        count++;
+
+    } while (intPart && count <= precision);
+    return res;
 }
-let num100 = 990500;
-let str100 = num100.toString();
-let mystr100 = MytoString(num100);
-str100 = num100.toString(36);
-mystr100 = MytoString (num100, 36);
-num100 = 123.45;
-str100 = num100.toString(16);
-mystr100 = MytoString (num100, 16);
-console.log (str100, "=", mystr100);
+function getSymbol(digit) {
+    const codeA = 'a'.charCodeAt();
+    let symbol;
+    if (digit < 10) {
+        symbol = "" + digit;
+    } else {
+        const codeAscii = digit - 10 + codeA;
+        symbol = String.fromCharCode(codeAscii);
+    }
+    return symbol;
+}
+console.log(myToString("1.1",10))

@@ -31,14 +31,14 @@ function getRandomNumber (min, max)
 }
 let RandomNumber = getRandomNumber (0, 1);
 
-console.log(RandomNumber);
-const ar1 = [0, 1, 0, 1, 1, 0, 1, 0];
-let strUl = '<ul class="list_class">';
-let strLi = '<li class=""item_clas">';
-let end = '</div></li></ul>';
+const ar1 = [0, 1, 0, 1, 1, 0,];
+
 function getHtmlUl(ar)
 {
 const HTML = [];
+let strUl = '<ul class="list_class">';
+let strLi = '<li class=""item_clas">';
+let end = '</div></li></ul>';
 HTML.push(strUl);
 HTML.push(strLi);
 let strClass ="";

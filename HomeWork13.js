@@ -57,3 +57,4 @@ return result;
 }
 let resHTML = getHtmlUl(ar1);
 console.log(resHTML);
+

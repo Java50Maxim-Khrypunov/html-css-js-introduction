@@ -1,15 +1,16 @@
 const array = [10, 20, 30, -10, 11, 100];
-const index = array.indexOf(3);
+const index = array.indexOf(30);
 console.log(index);
-// removind all numbers from 30
-// const res = array.splice(index);
-// array.splice(index,0,-10,-20);
+const res = array.splice(index);
+console.log(array);
+array.splice(index,0,-10,-20);
+console.log(array);
 // array.splice(index,2,-20);
 // console.log(array);
-// const ar1 = [40,200];
+const ar1 = [40,200];
 // array.splice(index, 1,...ar1);
-// array.splice(index, 1, ar1);
-// console.log(array);
+array.splice(index, 1,...ar1);
+console.log(array);
 // const res = array.splice(index,1);
 // console.log(res);
 // const numbersPerPage = 2;

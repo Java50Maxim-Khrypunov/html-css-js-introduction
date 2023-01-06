@@ -20,7 +20,7 @@ function coloringString(str1, str2)
 }
 // TASK 1 - B
 let str3 = "pappy";
-let str4 = "pappy";
+let str4 = "apple";
 const control = coloringString2(str3, str4);
 console.log(control);
 
@@ -28,12 +28,15 @@ console.log(control);
 {
     let ar3 = Array.from(str3);
     let ar4 = Array.from(str4);
-    if (ar3.length!=ar4.length) {console.log(Error);}
+    if (ar3.length!=ar4.length) {console.log(Error); return;}
     const res = ar4.map(function (number, index)
     {
-        if (ar3.indexOf(number) === -1) {return "red";}
-        else if (ar3.indexOf(number) != index && number!= ar3[index]) {return "yellow";}
-        else if (number === ar3[index]) {return"green";}
+        let color;
+        if (number === ar3[index]) {color = "green";}
+        else 
+        color = ar3.indexOf(number) > -1  ? "yellow" : "red";
+        //color = ar3.includes(number) ? "yellow" : "red";  give back true or false;
+        return color;
     })
     return res;
 }

@@ -20,7 +20,7 @@ function startGame()
     trials = word.length + 1;
     playAgainElement.style.display = "none";
     gameResultElement.innerHTML = "";
-    trialsElement.innerHTML = `remained trials ${trials}`;
+    trialsElement.innerHTML = `REMAINED TRIALS ${trials}`;
 }
 
 function getword()
@@ -49,7 +49,7 @@ function onChange()
     {
         const trialWord = guessInputElement.value; 
         trials --;
-        let counter;
+        let counter = 0;
         counter++;
         trialsElement.innerHTML = `REMAINED TRIALS ${trials}`;
         if (trialWord.length != word.length)
@@ -85,15 +85,13 @@ function finishGame(controlNumber) {
         gameResultElement.innerHTML =  "You are winner"
         flGameOver = true;
     playAgainElement.style.display='block';
-    trialsElement.innerHTML = 'You guessed the word';
+    trialsElement.innerHTML = `You guessed the word using ${(trials-word.length)*(-1)+1} attempts`;
     } else if (controlNumber == 0) {
         gameResultElement.innerHTML =  "You are loser";
         flGameOver = true;
     playAgainElement.style.display='block';
-    trialsElement.innerHTML = 'You do not guessed the word';
-    }
-   
-   
+    trialsElement.innerHTML = 'You have used all attempts to guess the word.';
+    } 
 }
 }
 startGame();

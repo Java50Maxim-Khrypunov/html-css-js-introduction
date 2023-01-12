@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wordle</title>
     <link rel="stylesheet" href="styles/wordle.css">
+    <link rel="shortcut icon" href="image/Wordle_2021_Icon.webp" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <h3 class="logo">Wordle Game</h3>
+    <header class>
+     <img src="image/worlde-logo.jpg" class="general-picture">
     </header>
     <input class="guess-input"  type="text" onchange="onChange()" 
     placeholder="Enter guess word">
@@ -20,7 +21,7 @@
     <section class="game-status">
         <p class="trials-remained"></p>
         <p class="game-result"></p>
-        <button class="play-again" onclick="startGame()">Play Again</button>
+        <button class="play-again" onclick="startGame()">PLAY AGAIN</button>
     </section>
     
     <script src="src/wordle.js"></script>

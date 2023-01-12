@@ -1,9 +1,29 @@
-.guess-letters {
+.logo
+{
+  font-size: 80%;
+  display: block;
+  text-align: center;
+  color: brown;
+}
+.general-picture
+{
+margin-bottom: 10px;
+display: block;
+    margin-left: auto;
+    margin-right: auto;
+height: 220px;
+width: 100%;
+}
+
+.guess-letters 
+{ 
     display: flex;
     flex-direction: row;
-    margin-top: 3vh;
+    text-align: center;
+    margin-top: 4vh;
+    margin-left: 30%;
   }
-  
+
   .game-status {
       display: flex;
       flex-direction: column;
@@ -15,10 +35,20 @@
   }
   
   .letter {
-    width: 5vw;
-    height: 5vw;
-    background-color: ghostwhite;
-    border: 1px solid black;
+    width: 7vw;
+    height: 7vw;
+    background-color: whitesmoke;
+    border: 2px solid black;
     text-align: center;
     font-size: 1,5em;
+    
   }
+  .guess-input
+  {
+    width: 400px;
+    height: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  

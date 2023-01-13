@@ -17,6 +17,7 @@ width: 100%;
     margin-right: auto;
     margin-top: 4vh;
     font-size: 450%;
+    justify-content: center;
   }
 
   .game-status {
@@ -41,6 +42,7 @@ width: 100%;
     display: flex;
     flex-direction: column;
     font-size: 1,5em;
+    justify-content: center;
     
   }
   .guess-input

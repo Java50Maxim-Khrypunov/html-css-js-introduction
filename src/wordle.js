@@ -55,12 +55,13 @@ function onChange()
         if (trialWord.length != word.length)
         {
             alert("WRONG NUMBERS OF LETTERS")
-        } 
+        }
         else {coloringWord(trialWord);  
         let control =1 ;
         if (trialWord == word)
         {finishGame(control)};
         if (trials === 0) {finishGame(0)};
+        guessInputElement.value='';
         }}
     
     function coloringWord(trialWord)
@@ -85,8 +86,8 @@ function finishGame(controlNumber) {
         gameResultElement.innerHTML =  "You are winner"
         flGameOver = true;
     playAgainElement.style.display='block';
-    trialsElement.innerHTML = `You guessed the word using ${(trials-word.length)*(-1)+1} attempts`;
-    } else if (controlNumber == 0) {
+    trialsElement.innerHTML = `You guessed the word using ${word.length-trials+1} attempts`;
+    } else if (controlNumber===0) {
         gameResultElement.innerHTML =  "You are loser";
         flGameOver = true;
     playAgainElement.style.display='block';

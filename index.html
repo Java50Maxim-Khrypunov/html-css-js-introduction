@@ -1,38 +1,30 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wordle</title>
-    <link rel="stylesheet" href="styles/wordle.css">
-    <link rel="shortcut icon" href="image/Wordle_2021_Icon.webp" type="image/x-icon">
-    <style> 
-        body 
-        {
-            background: url(image/1659572139_64-kartinkin-net-p-bukvi-dlya-patternov-krasivo-72.png);
-            background-repeat: no-repeat;
-            background-size: cover;  
-        }
-    </style>
-    <body>
-</head> 
-<body >
-    <header class>
-     <img src="image/worlde-logo.jpg" class="general-picture">
-    </header>
-    <input class="guess-input"  type="text" onchange="onChange()" 
-    placeholder="Enter guess word">
-    <section class="guess-letters">
-
+    <title>Marvels</title>
+    <link rel="stylesheet" href="styles/marvel.css">
+    <link rel="shortcut icon" href="image/поле чудес.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <img src="image/pole.jpg" class="general-picture">
+    </header> 
+    <section class="field">
+        <p id="question"></p>
+        <input type="text" readonly onchange="checkWord()" id="word-input" placeholder="Введите слово">
+        <button onclick="takeChance()" id="guess-button"> УГАДАТЬ СЛОВО </button>
+         <p id="letters-remained"></p>
+        <input type="text" minlength="1" maxlength="1" onchange="processLetter()" id="letter-input" placeholder="Введите букву">
     </section>
-    <section class="game-status">
-        <p class="trials-remained"></p>
-        <p class="game-result"></p>
-        <button class="play-again" onclick="startGame()">PLAY AGAIN</button>
+    <section class="word">    
     </section>
-    
-    <script src="src/wordle.js"></script>
+    <sectionc class="result">
+        <p id="result-message"></p>
+        <button onclick="startGame()" id="play-again"> ИГРАТЬ ЕЩЕ РАЗ </button>
+    </section>
+   <script src="src/marvel.js"></script>
 </body>
 </html>

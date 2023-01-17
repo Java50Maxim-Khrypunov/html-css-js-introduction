@@ -104,6 +104,7 @@ function finishGame(control)
     playAgain.style.display='block';
     remaindLettersElement.innerHTML = "";
     wordInputElement.value = "";
+    wordInputElement.readOnly = true;
     currentIndex++;
 }
 

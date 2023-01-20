@@ -30,7 +30,7 @@ function getEmployeesBySalary (employees, salaryFrom, salaryTo)
     });
     return peoplsWithSalary;
 }
-console.log(getEmployeesBySalary(employees, 10000, 12000));
+console.log(getEmployeesBySalary(employees, 10000, 11000));
 
 // TASK 3
 function getEmployeesByCity (employees, city)
@@ -76,7 +76,7 @@ function computeSalaryBudget(employees)
     budget =  budget + worker.salary;
 
     return budget;
-  }, 0)
+  },0)
   return salaryBudget;
 }
 console.log(`Total salary budget = ${computeSalaryBudget(employees)} shekels`);

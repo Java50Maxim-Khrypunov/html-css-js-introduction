@@ -41,42 +41,36 @@ const index1 = employees.find(function(empl)
 //HW 18
 function getEmployee(employees, idEmpl)
 {
-const person = employees.find(function(worker)
-{return worker.id===idEmpl});
-return person;
+return employees.find(worker => worker.id===idEmpl);
 }
-console.log(getEmployee(employees,12329));
+console.log(getEmployee(employees,12324));
 
-
-// function getEmployeesBySalary (employees, salaryFrom, salaryTo)
-// {
-// return reduce.
-// }
+function getEmployeesBySalary (employees, salaryFrom, salaryTo)
+{
+ return employees.filter(empl => salaryFrom <= empl.salary &&  empl.salary<=salaryTo);
+}
+console.log(getEmployeesBySalary(employees, 10000, 11500))
 
 function getEmployeesByCity (employees, city)
 {
-const findCity = employees.find(function (addressCity)
-{
- return addressCity.address.city === city;
-})
-return findCity;
+    return employees.filter (empl =>empl.address.city === city);
 }
-console.log(getEmployee(employees, "Lod"));
+console.log(getEmployeesByCity(employees, "Lod"))
 
 function getEmployeeNames(employees)
 {
-    const nameAllEmployees = employees.map(function(nameEmp, index)
-    {return index + 1 + "." + nameEmp.name});
-    return nameAllEmployees;
+    return employees.map(empl => empl.name)
 }
-console.log(getEmployee(employees));
+console.log(getEmployeeNames(employees))
 
-// function sortEmployeesByAge(employees)
-// {
-//     sort
-// }
+function sortEmployeesByAge(employees)
+{
+    return employees.sort((e1, e2) => e2.birthYear - e1.birthYear);
+}
+console.log(sortEmployeesByAge(employees))
 
-// function computeSalaryBudget(employees)
-// {
-    
-// }
+function computeSalaryBudget(employees)
+{
+    return employees.reduce((res, empl) => res + empl.salary, 0);
+}
+console.log(computeSalaryBudget(employees))

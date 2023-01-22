@@ -15,11 +15,11 @@ const employees = [
 
 function getMostPopulated(employees) 
 {
-   let employees1 = getCountries(employees);
-   const stringOccurrences = getStringOccurrences(employees1);
-   const arrayOccurrences = Object.entries(stringOccurrences);
-   const mostPopulatedCountry = getMax(arrayOccurrences);
-   console.log(`country where most of the company employees live ${mostPopulatedCountry[0]}, 
+   const countries = getCountries(employees);
+   const stringNumberofCountries = getStringOccurrences(countries);
+   const arrayCounries = Object.entries(stringNumberofCountries);
+   const mostPopulatedCountry = getMax(arrayCounries);
+   console.log(`country where most of the company employees live - ${mostPopulatedCountry[0]}, 
 live in it ${mostPopulatedCountry[1]} employees`);
 }
 
@@ -28,15 +28,15 @@ function getCountries(employees)
    return employees.map(empl => empl.address.country)
 }
 
-function getStringOccurrences(strings)
+function getStringOccurrences(countries)
 {
     const res= {};
-    strings.forEach(str1 => 
+    countries.forEach(country => 
         {
-             if (!res[str1]) {
-               res[str1] = 1;
+             if (!res[country]) {
+               res[country] = 1;
              }
-             else res[str1]++;
+             else res[country]++;
         })
         return res;
 }
@@ -53,18 +53,18 @@ function getMax(array) {
 
 function getMostPopulatedCountries(employees, number)
 {
-      let employees1 = getCountries(employees);
-      const stringOccurrences = getStringOccurrences(employees1);
-      const arrayOccurrences = Object.entries(stringOccurrences);
-      arrayOccurrences.sort(sorting);
+      const countries = getCountries(employees);
+      const stringNumberofCountries = getStringOccurrences(countries);
+      const arrayCounries = Object.entries(stringNumberofCountries);
+      arrayCounries.sort(sorting);
       let counter = number;
-      counter <=arrayOccurrences.length ? print(arrayOccurrences, counter) : console.log(`Error. Incorrect number of countries where the company's employees live.
-      Number of countries where our employees live -> ${arrayOccurrences.length}.`)
+      counter <=arrayCounries.length ? print(arrayCounries, counter) : console.log(`Error. Incorrect number of countries where the company's employees live.
+      Number of countries where our employees live -> ${arrayCounries.length}.`)
 }
 
-function sorting(entry1, entry2)
+function sorting(country1, country2)
 {
-    let res = entry2[1]- entry1[1];
+    let res = country2[1]- country1[1];
     return res;
 }
 
@@ -76,53 +76,53 @@ index++}
 while (index < number);
 }
 
-getMostPopulatedCountries(employees, 5)
-
+getMostPopulatedCountries(employees, 2)
 
 
 // TASK 3
-function isAnagram (word, anagram)
+function isAnagram(word, anagram)
 {
 let flag = false;
 if (word.length === anagram.length)
 {
    let arrayFromWord = Array.from(word);
-   const stringOccurrences = getLetters(arrayFromWord);
-   const arrayOccurrences = Object.entries(stringOccurrences);
-   const control = anagramChecking(word, anagram);
-   const control2 = sum(arrayOccurrences);
-   if (control === control2)
+   const stringOccurrencesOfLetters = getOcurrenceofLetters(arrayFromWord);
+   const arrayLetters = Object.entries(stringOccurrencesOfLetters);
+   const controlNumber = anagramChecking(word, anagram);
+   const controlNumber2 = sumofOcurrence(arrayLetters);
+   if (controlNumber === controlNumber2)
    {flag = true};
 }
 return flag;
 }
-function anagramChecking(array1, anagram)
+function anagramChecking(word, anagram)
 {
-   Array.from(array1)
+   Array.from(word)
    let counter = 0;
    for (i = 0; i<anagram.length; i++)
    {
-      if(anagram.includes(array1[i])){
-         counter ++
+      if(anagram.includes(word[i])){
+         counter ++;
       }
    }
    return counter;
 }
-function getLetters(strings)
+function getOcurrenceofLetters(strings)
 {  
     const res= {};
-    strings.forEach(str1 => 
+    strings.forEach(letter => 
         {
-             if (!res[str1]) {
-               res[str1] = 1;
+             if (!res[letter]) {
+               res[letter] = 1;
              }
-             else res[str1]++;
+             else res[letter]++;
         })
         return res;
 }
-function sum(ar)
+
+function sumofOcurrence(ar)
 {
     return ar.reduce((res, number) => res + number[1], 0);
 }
 
-console.log(isAnagram ("yellow", "esloly"));
+console.log(isAnagram ("father", "ahtref"));

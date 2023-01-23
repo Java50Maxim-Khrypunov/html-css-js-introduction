@@ -15,30 +15,22 @@ const employees = [
 
 function getMostPopulated(employees) 
 {
-   const countries = getCountries(employees);
-   const stringNumberofCountries = getStringOccurrences(countries);
+   const stringNumberofCountries = getStringOccurrences(employees);
    const arrayCounries = Object.entries(stringNumberofCountries);
    const mostPopulatedCountry = getMax(arrayCounries);
    console.log(`country where most of the company employees live - ${mostPopulatedCountry[0]}, 
 live in it ${mostPopulatedCountry[1]} employees`);
 }
 
-function getCountries(employees)
+function getStringOccurrences(employees)
 {
-   return employees.map(empl => empl.address.country)
-}
-
-function getStringOccurrences(countries)
-{
-    const res= {};
-    countries.forEach(country => 
-        {
-             if (!res[country]) {
-               res[country] = 1;
-             }
-             else res[country]++;
-        })
-        return res;
+   const res = {};
+   employees.forEach(element => 
+      {if(!res[element.address.country])
+       {res[element.address.country] = 1;}
+        else res[element.address.country]++;
+   });
+   return res;
 }
 function getMax(array) {
    return array.reduce(function(max, cur) 
@@ -53,8 +45,7 @@ function getMax(array) {
 
 function getMostPopulatedCountries(employees, number)
 {
-      const countries = getCountries(employees);
-      const stringNumberofCountries = getStringOccurrences(countries);
+      const stringNumberofCountries = getStringOccurrences(employees);
       const arrayCounries = Object.entries(stringNumberofCountries);
       arrayCounries.sort(sorting);
       let counter = number;
@@ -68,15 +59,15 @@ function sorting(country1, country2)
     return res;
 }
 
-function print(array, number)
+function print(array, counter)
 {
 let index = 0;
 do {console.log(`${array[index][0]} -> ${array[index][1]}`);
 index++}
-while (index < number);
+while (index < counter);
 }
 
-getMostPopulatedCountries(employees, 2)
+getMostPopulatedCountries(employees, 5)
 
 
 // TASK 3
@@ -125,4 +116,4 @@ function sumofOcurrence(ar)
     return ar.reduce((res, number) => res + number[1], 0);
 }
 
-console.log(isAnagram ("father", "ahtref"));
+console.log(isAnagram ("father", "rehaaf"));

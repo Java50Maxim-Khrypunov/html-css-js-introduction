@@ -67,11 +67,11 @@ function displayFieldValue(employees, index, field)
 {
     console.log(employees[index][field])
 }
-// displayFieldValue(employees, 3, "id")
-// employees[0].salary = 20000;
-// employees[0].department = "QA";
-// delete employees[0].department
-// displayFieldValue(employees, 0, "department")
+displayFieldValue(employees, 3, "id")
+employees[0].salary = 20000;
+employees[0].department = "QA";
+delete employees[0].department
+displayFieldValue(employees, 0, "department")
 
 function computeMinMaxAvgSalary(employees)
 {

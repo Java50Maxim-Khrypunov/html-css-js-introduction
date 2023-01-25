@@ -14,16 +14,16 @@ html
 }
 body
 {
-    --cocktail-image-width: 27vw;
-    --cocktail-image-heigh: 16vh;
-    --name-of-cocktail-text-heigh:calc(var(--cocktail-image-heigh)*0.2);
+    --movie-image-width: 27vw;
+    --movie-image-heigh: 16vh;
+    --name-of-films-text-heigh:calc(var(--movie-image-heigh)*0.2);
     --general-picture-width: 100vw;
     --general-picture-heigh: 60vw;
 }
 body
 {
     height: 100%;
-    background: url(../img/Коктели/фон\ 5555.jpg);
+    background: url(../img/Фильмы/pngtree-movie-film-white-light-effect-spot-background-picture-image_1576158.jpg);
     background-repeat: no-repeat;
     background-size: cover; 
     display: flex;
@@ -42,7 +42,7 @@ body
 {
     display: block;
     text-align: center;
-    background: url(../img/Коктели/Bar\ fon.jpg);
+    background: blue;
     background-repeat: no-repeat;
     background-size: cover; 
     font-size: 1.2em;
@@ -102,7 +102,7 @@ width: var(--general-picture-width);
     font-size: 200%;
     color: red;
 }
-.cocktail-list
+.movies-list
 {
     display: flex; 
     flex-wrap: wrap;
@@ -114,16 +114,16 @@ width: var(--general-picture-width);
     margin-top: 0px;
     margin-bottom: 0px;
 }
-.disappear .cocktail-list
+.disappear .movies-list
 {
     max-height: 90vh;
 }
 
-.coctail-ankor
+.movie-ancor
 {
 text-decoration: none;
 }
-.cocktail
+.movies
 {
    border: solid 2px transparent;
    margin-top: 7px;
@@ -135,31 +135,31 @@ text-decoration: none;
   
 }
 
-.disappear .cocktail
+.disappear .movies
 {
     margin-top: 5px; 
     margin-bottom: 5px;
 }
 
-.cocktail-image
+.movie-image
 {
     display: block;
-    height: var(--cocktail-image-heigh);
-    width: var(--cocktail-image-width);
+    height: var(--movie-image-heigh);
+    width: var(--movie-image-width);
 }
-.disappear .cocktail-image
+.disappear .movie-image
 {
-    height: calc(var(--cocktail-image-heigh)*1.15);
-    width: calc(var(--cocktail-image-width)*1.10);
+    height: calc(var(--cmovie-image-heigh)*1.15);
+    width: calc(var(--movie-image-width)*1.10);
 }
 
-.Name-of-cocktail
+.Name-of-film
 {
     display: block;
     text-align: center;
     background-color: black;
     color: white;  
-    height: var(--name-of-cocktail-text-heigh);
+    height: var(--name-of-film-text-heigh);
 }
 .is-point
 {
@@ -170,9 +170,9 @@ text-decoration: none;
 {
     body
 {
-    --cocktail-image-width: 18vw;
-    --cocktail-image-heigh: 30vh;
-    --name-of-cocktail-text-heigh:calc(var(--cocktail-image-heigh)*0.16);
+    --movie-image-width: 18vw;
+    --movie-image-heigh: 30vh;
+    --name-of-film-text-heigh:calc(var(--cocktail-image-heigh)*0.16);
     --general-picture-width: 69vw;
     --general-picture-heigh: 47vw;
     
@@ -191,7 +191,7 @@ text-decoration: none;
     {
         margin-top: 5px;
     }
-.cocktail-list
+.movies-list
 {
     order: -1;
     flex-direction: column;
@@ -202,7 +202,7 @@ text-decoration: none;
     margin-top: 5px;
     margin-bottom: 0px;
 }
-.disappear .cocktail-list
+.disappear .movies-list
 {
     flex-direction: row;
     flex-wrap: wrap;
@@ -210,7 +210,7 @@ text-decoration: none;
     max-height: 80vh;
     padding-right: 0px;
 }
-.cocktail
+.movies
 {
 margin-top: 5px;   
 }
@@ -249,7 +249,7 @@ margin-top: 5px;
         --general-picture-heigh: 88vh;
         --name-of-cocktail-text-heigh:calc(var(--cocktail-image-heigh)*0.1);
     }
-.cocktail-list
+.movies-list
 {
     max-height: 85vh;
     padding-right: 30px;
@@ -259,18 +259,18 @@ margin-top: 5px;
 {
     font-size: 1.6em;
 }
-.cocktail
+.movies
 {
 margin-bottom: 10px;   
 margin-top: 10px;
 min-height: 16.5vw;   
 margin-left: 20px;
 }
-.disappear .cocktail:hover
+.disappear .movies:hover
 {
 transform: scale(1.07);   
 }
-.cocktail:hover
+.movies:hover
 {
 transform: scale(1.1);
 }
@@ -286,7 +286,7 @@ transform: scale(1.1);
     bottom: 10%;
     color: red;
 }
-.disappear .cocktail-image
+.disappear .movie-image
 {
     height: calc(var(--cocktail-image-heigh)*1.15);
     width: calc(var(--cocktail-image-width)*1.2);

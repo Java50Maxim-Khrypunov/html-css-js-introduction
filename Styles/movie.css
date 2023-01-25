@@ -16,7 +16,7 @@ body
 {
     --movie-image-width: 27vw;
     --movie-image-heigh: 16vh;
-    --name-of-films-text-heigh:calc(var(--movie-image-heigh)*0.2);
+    --name-of-film-text-heigh:calc(var(--movie-image-heigh)*0.2);
     --general-picture-width: 100vw;
     --general-picture-heigh: 60vw;
 }
@@ -119,19 +119,20 @@ width: var(--general-picture-width);
     max-height: 90vh;
 }
 
-.movie-ancor
+.coctail-ankor
 {
 text-decoration: none;
 }
+
 .movies
 {
    border: solid 2px transparent;
    margin-top: 7px;
    margin-bottom: 7px;
-   border-radius: 25%;
-   overflow: hidden;
-   min-height: calc(var(--cocktail-image-heigh) + var(--name-of-cocktail-text-heigh));
-   min-width: var(--cocktail-image-width);
+   border-radius: 15%;
+   overflow: hidden; 
+   min-height: calc(var(--movie-image-heigh) + var(--name-of-film-text-heigh));
+   min-width: var(--movie-image-width);
   
 }
 
@@ -145,22 +146,25 @@ text-decoration: none;
 {
     display: block;
     height: var(--movie-image-heigh);
-    width: var(--movie-image-width);
+    width: calc(var(--movie-image-width)*1.10);
 }
 .disappear .movie-image
 {
-    height: calc(var(--cmovie-image-heigh)*1.15);
+    height: calc(var(--movie-image-heigh)*1.15);
     width: calc(var(--movie-image-width)*1.10);
 }
 
-.Name-of-film
+.name-of-film
 {
     display: block;
     text-align: center;
     background-color: black;
     color: white;  
     height: var(--name-of-film-text-heigh);
+    width: calc(var(--movie-image-width)*1.10);
 }
+
+
 .is-point
 {
     transform: scale(0.001);
@@ -172,7 +176,7 @@ text-decoration: none;
 {
     --movie-image-width: 18vw;
     --movie-image-heigh: 30vh;
-    --name-of-film-text-heigh:calc(var(--cocktail-image-heigh)*0.16);
+    --name-of-film-text-heigh:calc(var(--movie-image-heigh)*0.16);
     --general-picture-width: 69vw;
     --general-picture-heigh: 47vw;
     
@@ -243,11 +247,11 @@ margin-top: 5px;
 {
     body
     {
-        --cocktail-image-width: 15vw;
-        --cocktail-image-heigh: 32vh;
+        --movie-image-width: 15vw;
+        --movie-image-heigh: 32vh;
         --general-picture-width: 75vw;
         --general-picture-heigh: 88vh;
-        --name-of-cocktail-text-heigh:calc(var(--cocktail-image-heigh)*0.1);
+        --name-of-film-text-heigh:calc(var(--movie-image-heigh)*0.1);
     }
 .movies-list
 {
@@ -263,7 +267,7 @@ margin-top: 5px;
 {
 margin-bottom: 10px;   
 margin-top: 10px;
-min-height: 16.5vw;   
+min-height: 17vw;   
 margin-left: 20px;
 }
 .disappear .movies:hover
@@ -288,8 +292,12 @@ transform: scale(1.1);
 }
 .disappear .movie-image
 {
-    height: calc(var(--cocktail-image-heigh)*1.15);
-    width: calc(var(--cocktail-image-width)*1.2);
+    height: calc(var(--movie-image-heigh)*1.3);
+    width: calc(var(--movie-image-width)*1.2);
+}
+.disappear .name-of-film
+{
+ width: calc(var(--movie-image-width)*1.2);   
 }
 
 }

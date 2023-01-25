@@ -19,7 +19,7 @@ const allAnchor =document.querySelectorAll("a");
 function getListItems() 
 {
     const itemsArray = moviesData.results.map(movie => 
-        `<li class=movies> <a href="#"> <img src="${httpPrefix}${movie.poster_path}" class = movie-image><span class=Name-of-film>${movie.original_title}
+        `<li class=movies> <a href="#"> <img src="${httpPrefix}${movie.poster_path}" class = movie-image><span class=name-of-film>${movie.original_title}
         </span></a></li>`);   
     return itemsArray.join('');
 }
@@ -42,11 +42,25 @@ function disappearDetails()
 function setDatails(index)
 {
     generalPicture.src = `${httpPrefix}${moviesData.results[index].backdrop_path}`;
-    description.innerHTML = `${moviesData.results[index].overview}`
- 
+    const overview = `${moviesData.results[index].overview}`;
+    description.innerHTML = textСlipping(overview);
     showDetails();
 }
 allAnchor.forEach((anchor, index) =>
 anchor.addEventListener("click",function(){
 setDatails(index);
  }))
+ 
+ function textСlipping(ar)
+ {
+ let arrayOfWord = ar.split(' ');
+ const MaxLetter = 50;
+ let clippingOfOverview ='';
+ for(let i=0, counter = 0; counter<=MaxLetter; i++)
+ {
+ counter = counter + arrayOfWord[i].length;
+ if (counter > MaxLetter) {break;}
+ clippingOfOverview= clippingOfOverview +`${arrayOfWord[i]} `;
+ }
+ return clippingOfOverview;
+ }

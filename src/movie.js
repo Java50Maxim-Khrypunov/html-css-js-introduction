@@ -62,5 +62,5 @@ setDatails(index);
  if (counter > MaxLetter) {break;}
  clippingOfOverview= clippingOfOverview +`${arrayOfWord[i]} `;
  }
- return clippingOfOverview;
+ return clippingOfOverview+"...";
  }

@@ -51,9 +51,9 @@ getEmployessCountry(country)
 getEmployeesByAge(age)
 {
  let yearOfBirth = new Date().getFullYear()-age;  
- return Object.values(this.#employees).filter(empl =>
-    empl.birthYear === yearOfBirth);
+ return Object.values(this.#employees).filter(empl => empl.birthYear === yearOfBirth);
 }
+
 getEmployeesBySalaries(salaryFrom, salaryTo)
 {
    const res = Object.values(this.#employees).filter(function (empl) 
@@ -62,15 +62,13 @@ getEmployeesBySalaries(salaryFrom, salaryTo)
     else if (salaryFrom>0 && salaryTo>0) {return empl.salary>salaryFrom && empl.salary<salaryTo}
     else if (salaryFrom<=0) {return empl.salary<=salaryTo}
     else if (salaryTo<=0) {return empl.salary>=salaryFrom}
-    
-    });
-    
+    });   
     return res;
-  
 }
+
 getAllEmployees()
 {
-    return Object.values(this.#employees).filter(empl => empl.id)
+    return Object.values(this.#employees)
 }
 }
 let myCompany = new Company();
@@ -86,5 +84,5 @@ for(i=0;i < 8; i++)
 // console.log(myCompany.getEmployeesByAge(20));
 // console.log(myCompany.getEmployeesBySalaries(0, 11000));
 // console.log(myCompany.removeEmloyee(12329));
-// console.log(myCompany.getAllEmployees())
-console.log(myCompany.getEmployeesBySalaries(0,20000));
+console.log(myCompany.getAllEmployees())
+// console.log(myCompany.getEmployeesBySalaries(0,20000));

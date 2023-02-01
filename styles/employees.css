@@ -73,29 +73,18 @@ body
   text-align: center;
   background: black;
   color: white;
-}
-#countries
-{
-    font-size: 150%;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-#text_country
-{
-    margin-top: 10px;
-    font-size: 150%; 
-    width: 50px;  
-}
-#cities
-{
-    font-size: 150%;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-#text_city
-{
-    margin-top: 10px;
-    font-size: 150%; 
-    width: 50px;  
+  border-color: brown;
 }
 
+.form-select {
+    width: 150px;
+    font-size: 150%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.select-label {
+    margin-left: 17%;
+    margin-top: 10px;
+    font-size: 1.7em;
+}

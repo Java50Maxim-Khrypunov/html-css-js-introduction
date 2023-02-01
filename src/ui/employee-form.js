@@ -16,14 +16,14 @@ export class EmployeeForm {
             <input required name="birthYear" type="number" placeholder="Enter year of birth" class="form-birthYear">
             <input required name="salary" type="number" placeholder="Enter salary" class="form-salary">
             <div class="form-select-group-c">
-                <label id = "text_country">Select Country</label>
+                <label id = "text_country" class ="select-label" >Select Country</label>
                 <select name="country" id="countries" class="form-select">
                     <option value="uuuu"></option>
                     
                 </select>
             </div>
             <div class="form-select-group">
-                <label id = "text_city">Select City</label>
+                <label id = "text_city" class ="select-label">Select City</label>
                 <select name="city" id="cities" class="form-select">
                     <option value="uuuu"></option>
                     
@@ -71,10 +71,9 @@ export class EmployeeForm {
       const inputElementBirthYear = document.querySelector(".form-birthYear"); 
       const inputElementSalary = document.querySelector(".form-salary"); 
       const inputElementName = document.querySelector(".form-input");
-      const pattern = new RegExp(/[a-zA-Z]+/g);
+      const pattern = /^[a-zA-Z]+$/;
       const iscontrolNameValid = pattern.test(inputElementName.value);
-      console.log(iscontrolNameValid);
-      if(!iscontrolNameValid){alert(`YOU CAN ENTER ONLY LETTERS`); return false};
+      if(!iscontrolNameValid){alert(`YOU CAN ENTER ONLY LETTERS IN FIlD "NAME"`); return false};
       if (inputElementSalary.value<employeeConfig.minSalary ||inputElementSalary.value>employeeConfig.maxSalary)
       {alert(`WRONG SALARY. SALARY MUST BE FROM ${employeeConfig.minSalary} until ${employeeConfig.maxSalary}` ); return false};
       if (inputElementBirthYear.value<employeeConfig.minYear ||inputElementBirthYear.value>employeeConfig.maxYear)

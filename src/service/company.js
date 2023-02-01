@@ -1,20 +1,13 @@
-//Home Work #21
 
-export function createEmployee (id, name, birthYear, salary, city, country)
+import { employeeConfig } from "../config/employee-config.js";
+import { getRandomNumber } from "../utils/random.js";
+
+export function createEmployee (name, birthYear, salary, city, country)
 {
+    const id =  getRandomNumber (employeeConfig.minId, employeeConfig.maxId)
     return{id, name, birthYear, salary, address: {city, country}}
 }
 
-const employees = [
-    createEmployee(12323, "Gosha", 1999, 15000, "Lod", "Israel"),
-    createEmployee(12324, "David", 1975, 15500, "Tel-Aviv", "Israel"), 
-    createEmployee(12325, "Sara", 1998, 20000, "New York", "USA"),
-    createEmployee(12326, "Abraham", 1990, 13000, "London", "England"),
-    createEmployee(12327, "Moshe", 1991, 11200, "Rehovot", "Israel"),
-    createEmployee(12328, "Goga", 1993, 14000, "Tbilisi", "Georgea"),
-    createEmployee(12329, "Sasha", 1988, 25000, "Ramat Gan", "Israel"),
-    createEmployee(12330, "Victor", 2003, 10000, "Arad", "Israel")
-];
 export class Company
 {
  #employees;
@@ -27,7 +20,9 @@ addEmployee(worker)
     if(this.#employees[worker.id])
     {console.log("Employee with ID like that already have in base"); return false};
     this.#employees[worker.id]=worker;
-    console.log("Employee is added"); return true
+    console.log("Employee is added"); 
+    console.log(this.getAllEmployees());
+    return true;
 
 }
 removeEmloyee(id)

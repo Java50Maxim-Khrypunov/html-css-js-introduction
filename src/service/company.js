@@ -1,6 +1,6 @@
 //Home Work #21
 
-function createEmployee (id, name, birthYear, salary, city, country)
+export function createEmployee (id, name, birthYear, salary, city, country)
 {
     return{id, name, birthYear, salary, address: {city, country}}
 }
@@ -15,7 +15,7 @@ const employees = [
     createEmployee(12329, "Sasha", 1988, 25000, "Ramat Gan", "Israel"),
     createEmployee(12330, "Victor", 2003, 10000, "Arad", "Israel")
 ];
-class Company
+export class Company
 {
  #employees;
 constructor ()
@@ -71,18 +71,9 @@ getAllEmployees()
     return Object.values(this.#employees)
 }
 }
-let myCompany = new Company();
-for(i=0;i < 8; i++)
-{
-    myCompany.addEmployee(employees[i]); 
-}
+// let myCompany = new Company();
+// for(i=0;i < 8; i++)
+// {
+//     myCompany.addEmployee(employees[i]); 
+// }
 
-// console.log(myCompany.addEmployee(employees[2]));
-// console.log(myCompany.removeEmloyee(12329));
-// console.log(myCompany.getEmployeesByID(12328))
-// console.log(myCompany.getEmployessCountry("USA"));
-// console.log(myCompany.getEmployeesByAge(20));
-// console.log(myCompany.getEmployeesBySalaries(0, 11000));
-// console.log(myCompany.removeEmloyee(12329));
-console.log(myCompany.getAllEmployees())
-// console.log(myCompany.getEmployeesBySalaries(0,20000));

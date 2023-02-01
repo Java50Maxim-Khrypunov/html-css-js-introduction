@@ -1,65 +1,85 @@
 import { employeeConfig } from "../config/employee-config.js";
 
-export class EmployeeForm{
+export class EmployeeForm {
     #formElement;
     #citiesElement;
     #countriesElement;
-    #inputElements;
-    constructor(idParentForm)
-    {
+    #inputElements
+    constructor(idParentForm) {
         const parentFormElement = document.getElementById(idParentForm);
-        if(!parentFormElement){throw `wrong parent id ${idParentForm}`};
-    parentFormElement.innerHTML =`<form id="employee-form">
-    <input required name="name" type="text" placeholder="enter employee name" class="form-input">
-    <input required name="birthYear" type="number" placeholder="enter birth year" class="form-input">
-    <input required name="salary" type="number" placeholder="enter salary" class="form-input">
-    <div class="form-select-group">
-        <label>Select country</label>
-        <select name="country" id="countries" class="form-select">
-            <option value="uuu"></option>
-
-        </select>
-    </div>
-    <div class="form-select-group">
-        <label>Select city</label>
-        <select name="city" id="cities" class="form-select">
-            <option value="rrr"></option>
+        if (!parentFormElement) {
+            throw `wrong parent id ${idParentForm}`;
+        }
+        parentFormElement.innerHTML = `
+        <form id="employee-form">
+            <input required name="name" placeholder="Enter employee name" class="form-input">
+            <input required name="birthYear" type="number" placeholder="Enter year of birth" class="form-birthYear">
+            <input required name="salary" type="number" placeholder="Enter salary" class="form-salary">
+            <div class="form-select-group-c">
+                <label id = "text_country">Select Country</label>
+                <select name="country" id="countries" class="form-select">
+                    <option value="uuuu"></option>
+                    
+                </select>
+            </div>
+            <div class="form-select-group">
+                <label id = "text_city">Select City</label>
+                <select name="city" id="cities" class="form-select">
+                    <option value="uuuu"></option>
+                    
+                </select>
+            </div>
+            <div class="form-buttons">
+                <button class = "submit" type="submit">Submit</button>
+                <button class = "reset" type="reset">Reset</button>
+            </div>
+        </form>
+        `
+        this.#formElement = document.getElementById("employee-form");
+        this.#countriesElement = document.getElementById("countries");
+        this.#citiesElement = document.getElementById("cities");
+        this.#inputElements  = document.querySelectorAll("#employee-form [name]");
+        this.setCountries();
+        this.setCities();
+        this.#countriesElement.addEventListener("change", () => this.setCities());
         
-        </select>
-    </div>
-    <div class="form-buttons">
-        <button type="submit">Submit</button>
-        <button type="reset">Reset</button>
-    </div>
+    }
+    setCountries() {
+        this.#countriesElement.innerHTML = Object.keys(employeeConfig.countries)
+        .map(country => `<option value="${country}">${country}</option>`)
+    }
+    setCities() {
+        this.#citiesElement.innerHTML = employeeConfig.countries[this.#countriesElement.value]
+        .map(city => `<option value="${city}">${city}</option>`)
+    }
+    addFormHandler(handlerFun) {
+    this.#formElement.addEventListener('submit', (event) => {
+    event.preventDefault(); //canceling default handler of "submit"
+    const control = this.checkInformation();
+    if (control===true)
+    {const employeeData = Array.from(this.#inputElements)
+    .reduce((res, inputElement) => {
+        res[inputElement.name] = inputElement.value;
+        return res;
+    }, {});
+   handlerFun(employeeData);}
 
-</form>`;
-this.#formElement = document.getElementById("employee-form");
-this.#countriesElement = document.getElementById("countries");
-this.#citiesElement =document.getElementById("cities");
-this.#inputElements= document.querySelectorAll("#employee-form [name]");
-this.setCountries();
-this.setCity();
-this.#countriesElement.addEventListener("change", () => this.setCity());
-}
-setCountries(){
-    this.#countriesElement.innerHTML =Object.keys (employeeConfig.countries).
-    map(country => `<option value= "${country}">${country}</option>`)
-}
-setCity()
-{
-    this.#citiesElement.innerHTML = employeeConfig.countries[this.#countriesElement.value].map
-    (city => `<option value= "${city}">${city}</option>`)
-}
-addFormHandler(handlerFun)
-{
-    this.#formElement.addEventListener('submit', (event)=>
+})
+    }
+    checkInformation()
     {
-    event.preventDefault();// cancelling default handler of "submit"
-    const employeeData = Array.from(this.#inputElements).reduce((res,inputElement) => 
-    {res[inputElement.name] = inputElement.value;
-    return res;
-    },{});
-    handlerFun(employeeData);
-    })  
-}
+      const inputElementBirthYear = document.querySelector(".form-birthYear"); 
+      const inputElementSalary = document.querySelector(".form-salary"); 
+      const inputElementName = document.querySelector(".form-input");
+      const pattern = new RegExp(/[a-zA-Z]+/g);
+      const iscontrolNameValid = pattern.test(inputElementName.value);
+      console.log(iscontrolNameValid);
+      if(!iscontrolNameValid){alert(`YOU CAN ENTER ONLY LETTERS`); return false};
+      if (inputElementSalary.value<employeeConfig.minSalary ||inputElementSalary.value>employeeConfig.maxSalary)
+      {alert(`WRONG SALARY. SALARY MUST BE FROM ${employeeConfig.minSalary} until ${employeeConfig.maxSalary}` ); return false};
+      if (inputElementBirthYear.value<employeeConfig.minYear ||inputElementBirthYear.value>employeeConfig.maxYear)
+      {alert(`WRONG YEAR OF BIRTH. YEAR OF BIRTH FROM ${employeeConfig.minYear} until ${employeeConfig.maxYear}`); return false};
+      return true;
+      
+    }
 }

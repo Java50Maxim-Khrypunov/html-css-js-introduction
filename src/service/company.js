@@ -17,16 +17,26 @@ constructor ()
 addEmployee(worker) 
 {
     worker.id = getRandomNumber(employeeConfig.minId, employeeConfig.maxId);
-        let res = "";
+        let res = "error: there is such employee in the company";
         if (this.#employees[worker.id]) {
-            return res = console.log("Employee with ID like that already have in base");
+            return res = "Employee with ID like that already have in base";
         }
         else {
             this.#employees[worker.id] = worker;
-            res = console.log("Employee is added");
+            res = this.#checkEmployee(worker);
         }
         return res;
 
+}
+#checkEmployee(empl) {
+    let res = '';
+    if (empl.salary < employeeConfig.minSalary || empl.salary > employeeConfig.maxSalary) {
+        res = 'Salary greater/less then max/min salary.'
+    }
+    if (empl.birthYear > employeeConfig.maxYear || empl.birthYear < employeeConfig.minYear) {
+        res = ' Birth year above/under maximum/minimum birth year.'
+    }
+    return res;
 }
 removeEmloyee(id)
 {

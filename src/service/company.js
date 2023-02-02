@@ -1,11 +1,10 @@
-
 import { employeeConfig } from "../config/employee-config.js";
 import { getRandomNumber } from "../utils/random.js";
 
 export function createEmployee (name, birthYear, salary, city, country)
 {
-    const id =  getRandomNumber (employeeConfig.minId, employeeConfig.maxId)
-    return{id, name, birthYear, salary, address: {city, country}}
+    // const id =  getRandomNumber (employeeConfig.minId, employeeConfig.maxId)
+    return{name, birthYear, salary, address: {city, country}}
 }
 
 export class Company
@@ -17,12 +16,16 @@ constructor ()
 }
 addEmployee(worker) 
 {
-    if(this.#employees[worker.id])
-    {console.log("Employee with ID like that already have in base"); return false};
-    this.#employees[worker.id]=worker;
-    console.log("Employee is added"); 
-    console.log(this.getAllEmployees());
-    return true;
+    worker.id = getRandomNumber(employeeConfig.minId, employeeConfig.maxId);
+        let res = "";
+        if (this.#employees[worker.id]) {
+            return res = console.log("Employee with ID like that already have in base");
+        }
+        else {
+            this.#employees[worker.id] = worker;
+            res = console.log("Employee is added");
+        }
+        return res;
 
 }
 removeEmloyee(id)
@@ -66,9 +69,3 @@ getAllEmployees()
     return Object.values(this.#employees)
 }
 }
-// let myCompany = new Company();
-// for(i=0;i < 8; i++)
-// {
-//     myCompany.addEmployee(employees[i]); 
-// }
-

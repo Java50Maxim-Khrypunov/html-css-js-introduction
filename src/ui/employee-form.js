@@ -1,5 +1,6 @@
 import { employeeConfig } from "../config/employee-config.js";
 
+
 export class EmployeeForm {
     #formElement;
     #citiesElement;
@@ -47,6 +48,7 @@ export class EmployeeForm {
     setCountries() {
         this.#countriesElement.innerHTML = Object.keys(employeeConfig.countries)
         .map(country => `<option value="${country}">${country}</option>`)
+
     }
     setCities() {
         this.#citiesElement.innerHTML = employeeConfig.countries[this.#countriesElement.value]
@@ -73,11 +75,15 @@ export class EmployeeForm {
       const inputElementName = document.querySelector(".form-input");
       const pattern = /^[a-zA-Z]+$/;
       const iscontrolNameValid = pattern.test(inputElementName.value);
-      if(!iscontrolNameValid){alert(`YOU CAN ENTER ONLY LETTERS IN FIlD "NAME"`); return false};
+      if(!iscontrolNameValid){alert(`YOU CAN ENTER ONLY LETTERS IN FIlD "NAME"`);
+      inputElementName.value ='';return false};
       if (inputElementSalary.value<employeeConfig.minSalary ||inputElementSalary.value>employeeConfig.maxSalary)
-      {alert(`WRONG SALARY. SALARY MUST BE FROM ${employeeConfig.minSalary} until ${employeeConfig.maxSalary}` ); return false};
+      {alert(`WRONG SALARY. SALARY MUST BE FROM ${employeeConfig.minSalary} until ${employeeConfig.maxSalary}` );
+      inputElementSalary.value =''; return false};
       if (inputElementBirthYear.value<employeeConfig.minYear ||inputElementBirthYear.value>employeeConfig.maxYear)
-      {alert(`WRONG YEAR OF BIRTH. YEAR OF BIRTH FROM ${employeeConfig.minYear} until ${employeeConfig.maxYear}`); return false};
+      {alert(`WRONG YEAR OF BIRTH. YEAR OF BIRTH FROM ${employeeConfig.minYear} until ${employeeConfig.maxYear}`); 
+      inputElementBirthYear.value=''; return false};
+
       return true;
       
     }

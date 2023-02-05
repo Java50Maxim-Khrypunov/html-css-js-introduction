@@ -13,7 +13,7 @@ export class EmployeeForm {
         }
         parentFormElement.innerHTML = `
         <form id="employee-form">
-            <input required name="name" placeholder="Enter employee name" class="form-input">
+            <input required name="name" type="text" placeholder="Enter employee name" class="form-input">
             <input required name="birthYear" type="number" placeholder="Enter year of birth" class="form-birthYear">
             <input required name="salary" type="number" placeholder="Enter salary" class="form-salary">
             <div class="form-select-group-c">
@@ -55,36 +55,33 @@ export class EmployeeForm {
         .map(city => `<option value="${city}">${city}</option>`)
     }
     addFormHandler(handlerFun) {
-    this.#formElement.addEventListener('submit', (event) => {
+    
+        this.#formElement.addEventListener('submit', (event) => {
     event.preventDefault(); //canceling default handler of "submit"
-    const control = this.checkInformation();
-    if (control===true)
-    {const employeeData = Array.from(this.#inputElements)
+    const employeeData = Array.from(this.#inputElements)
     .reduce((res, inputElement) => {
         res[inputElement.name] = inputElement.value;
         return res;
     }, {});
-   handlerFun(employeeData);}
 
+    const msg = handlerFun(employeeData);
+    if(msg){
+          alert(msg);
+      }
+    const result = document.querySelector('.Result-message');
+    result.style.display = 'block';
+    nullingoRows();
 })
     }
-    checkInformation()
-    {
-      const inputElementBirthYear = document.querySelector(".form-birthYear"); 
-      const inputElementSalary = document.querySelector(".form-salary"); 
-      const inputElementName = document.querySelector(".form-input");
-      const pattern = /^[a-zA-Z]+$/;
-      const iscontrolNameValid = pattern.test(inputElementName.value);
-      if(!iscontrolNameValid){alert(`YOU CAN ENTER ONLY LETTERS IN FIlD "NAME"`);
-      inputElementName.value ='';return false};
-      if (inputElementSalary.value<employeeConfig.minSalary ||inputElementSalary.value>employeeConfig.maxSalary)
-      {alert(`WRONG SALARY. SALARY MUST BE FROM ${employeeConfig.minSalary} until ${employeeConfig.maxSalary}` );
-      inputElementSalary.value =''; return false};
-      if (inputElementBirthYear.value<employeeConfig.minYear ||inputElementBirthYear.value>employeeConfig.maxYear)
-      {alert(`WRONG YEAR OF BIRTH. YEAR OF BIRTH FROM ${employeeConfig.minYear} until ${employeeConfig.maxYear}`); 
-      inputElementBirthYear.value=''; return false};
 
-      return true;
-      
-    }
+}
+
+function nullingoRows()
+{
+    const inputElementBirthYear = document.querySelector(".form-birthYear"); 
+    const inputElementSalary = document.querySelector(".form-salary"); 
+    const inputElementName = document.querySelector(".form-input");
+    inputElementName.value ='';
+    inputElementSalary.value ='';
+    inputElementBirthYear.value ='';
 }

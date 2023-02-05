@@ -4,9 +4,11 @@ export const employeeConfig ={
     minSalary:6000,
     maxSalary:40000,
     minYear: 1955,
-    maxYear: 2004,
+    maxYear: 2002,
     countries: {
         "Israel": ["Lod", "Tel Aviv", "Rehovot"],
-        "USA": ["New York", "Boston", "Washington"]
+        "USA": ["New York", "Boston", "Washington"],
+        "UK": ["London", "Liverpool"],
+        "Ukraine": ["Kiyv", "Kharkiv", "Lviv"]
     }
 }

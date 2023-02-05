@@ -14,30 +14,16 @@ constructor ()
 {
     this.#employees = {};
 }
-addEmployee(worker) 
+addEmployee(empl) 
 {
-    worker.id = getRandomNumber(employeeConfig.minId, employeeConfig.maxId);
-        let res = "error: there is such employee in the company";
-        if (this.#employees[worker.id]) {
-            return res = "Employee with ID like that already have in base";
-        }
-        else {
-            this.#employees[worker.id] = worker;
-            res = this.#checkEmployee(worker);
-        }
-        return res;
+    const res = checkEmployeeData(empl);
+    const id = this.#getId();
+    if (res === "Employee added successfully")
+    { empl.id = id;
+    this.#employees[id] =empl;}
+    return {message :res , id};
+}
 
-}
-#checkEmployee(empl) {
-    let res = '';
-    if (empl.salary < employeeConfig.minSalary || empl.salary > employeeConfig.maxSalary) {
-        res = 'Salary greater/less then max/min salary.'
-    }
-    if (empl.birthYear > employeeConfig.maxYear || empl.birthYear < employeeConfig.minYear) {
-        res = ' Birth year above/under maximum/minimum birth year.'
-    }
-    return res;
-}
 removeEmloyee(id)
 {
     if(!this.#employees[id])
@@ -76,6 +62,34 @@ getEmployeesBySalaries(salaryFrom, salaryTo)
 
 getAllEmployees()
 {
-    return Object.values(this.#employees)
+    return Object.values(this.#employees);
 }
+#getId()
+{
+let id = 0;
+do{
+    id = getRandomNumber(employeeConfig.minId, employeeConfig.maxId+1);
+}while(this.#employees[id])
+return id;
 }
+
+}
+function checkEmployeeData(empl) 
+{
+    let res = '';
+
+    const pattern = /^[a-zA-Z]+$/;
+    const iscontrolNameValid = pattern.test(empl.name);
+
+    if (empl.salary < employeeConfig.minSalary || empl.salary > employeeConfig.maxSalary) {
+        res = `WRONG SALARY. SALARY MUST BE FROM ${employeeConfig.minSalary} UNTIL ${employeeConfig.maxSalary}; `;
+    }
+    if (empl.birthYear > employeeConfig.maxYear || empl.birthYear < employeeConfig.minYear) {
+        res +=  `WRONG YEAR OF BIRTH. YEAR OF BIRTH MUST BE FROM ${employeeConfig.minYear} UNTIL ${employeeConfig.maxYear}; `;
+    } 
+    if(!iscontrolNameValid){res += `YOU CAN ENTER ONLY LETTERS IN FIlD "NAME"`};
+
+    return res;
+}
+
+      

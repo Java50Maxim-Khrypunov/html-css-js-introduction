@@ -67,6 +67,7 @@ export class EmployeeForm {
     const msg = handlerFun(employeeData);
     if(msg){
           alert(msg);
+          result.style.display = 'none';
       }
     const result = document.querySelector('.Result-message');
     result.style.display = 'block';

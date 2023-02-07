@@ -139,6 +139,10 @@ body
 }
 .table-style
 {
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-bottom: 1vw;
+    padding-top: 1vw;
     text-align: center;
     outline: 2px solid #000;
 }
@@ -225,7 +229,7 @@ color: red;
 {
     display: block;
     justify-content: center;
-    margin-left: 8em;
+    margin-left: 12vw;
 }
 }
 @media (min-width: 1000px)
@@ -316,6 +320,6 @@ color: red;
     .general-table
     {
 
-        margin-left: 20%;
+        margin-left: 15vw;
     }
 }
